@@ -9,18 +9,26 @@ require_once __DIR__ . '/Television.php';
 require_once __DIR__ . '/Computer.php';
 require_once __DIR__ . '/User.php';
 
-$iphone13 = new Phone('Iphone', '13', 1180, 7);
+$iphone13 = new Phone('Iphone', '13', 1180, 7, 143265);
 $iphone13->category = 'Phone';
 $iphone13->memory_in_gb = 128;
 // var_dump($iphone13);
 
 
-$hisense_oled = new Television('Hisense', 'AR45642', 899, 55);
+$hisense_oled = new Television('Hisense', 'AR45642', 899, 55, 149482);
 $hisense_oled->category = 'Tv';
 $hisense_oled->type_of_screen = 'Oled';
 // var_dump($hisense_oled);
 
-$lenovo_legion = new Computer('Lenovo', 'Legion', 2500, 16, 'AMD Ryzen 5');
+try {
+    $lenovo_legion = new Computer('Lenovo', 'Legion', 2500, 16, 134928, 'AMD Ryzen 5');
+} catch(Exception $e) {
+
+    error_log($e);
+
+    echo '<div style="text-align: center;">Il Server è attualmente in manutenzione, riprova più tardi.</div>';
+    die();
+}
 $lenovo_legion->category = 'Laptop';
 $lenovo_legion->video_board = 'AMD Radeon RX 6600M';
 // var_dump($lenovo_legion);
